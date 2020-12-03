@@ -29,7 +29,7 @@ libvest_dep = declare_dependency(
 )
 
 test_files = files(
-    'test/testRunner.vala',
+    'test/vestRunner.vala',
     'test/assertionTest.vala',
 )
 

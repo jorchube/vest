@@ -21,7 +21,7 @@ libvest_inc = include_directories(vest_location)
 ### create some vest test suites and add them to the testRunner.vala provided
 test_files = files(
     'test/someTestSuite.vala',
-    'test/testRunner.vala'
+    'test/vestRunner.vala'
 )
 
 ### define the tests executable
