@@ -1,8 +1,9 @@
 using io.github.jorchube.vest;
+using Gee;
 
 namespace io.github.jorchube.vest.test
 {
-    class AssertionTest : Suite
+    public class AssertionTest : Suite
     {
         public override void testCases ()
         {
@@ -59,6 +60,55 @@ namespace io.github.jorchube.vest.test
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(null, new Object()); });
             });
+
+            test("Assert equals does not raise on two null objects", () =>
+            {
+                Assert.equals(null, null);
+            });
+
+            test("Assert equals raises on two objects of different types", () =>
+            {
+                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectTypeA(), new ObjectTypeB()); });
+            });
+
+            test("Assert equals does not raise on two objects with same reference", () =>
+            {
+                Object a = new Object();
+                Object b = a;
+
+                Assert.equals(a, b);
+            });
+
+            test("Assert equals does not raise on two comparable objects that are equal", () =>
+            {
+                Assert.equals(new ObjectComparable(1), new ObjectComparable(1));
+            });
+
+            test("Assert equals raises on two comparable objects that are not equal", () =>
+            {
+                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectComparable(1), new ObjectComparable(2)); });
+            });
+        }
+
+        class ObjectTypeA : Object
+        {}
+
+        class ObjectTypeB : Object
+        {}
+
+        class ObjectComparable : Object, Comparable<ObjectComparable>
+        {
+            private int a { get; private set; }
+
+            public ObjectComparable(int aValue)
+            {
+                a = aValue;
+            }
+
+            public int compare_to(ObjectComparable other)
+            {
+                return this.a - other.a;
+            }
         }
     }
 }

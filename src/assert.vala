@@ -1,3 +1,5 @@
+using Gee;
+
 namespace io.github.jorchube.vest
 {
     public errordomain assertionError {
@@ -56,6 +58,28 @@ namespace io.github.jorchube.vest
             if (a.get_type() != b.get_type())
             {
                 equalsFailed(a, b);
+            }
+
+            if (a == b)
+            {
+                return;
+            }
+
+            equalsComparable(a, b, message);
+        }
+
+        private static void equalsComparable<T>(T a, T b, string? message = null) throws assertionError
+        {
+            try
+            {
+                if (((Comparable<T>)a).compare_to(b) != 0)
+                {
+                    equalsFailed((Object)a, (Object)b);
+                }
+            }
+            catch (Error e)
+            {
+                equalsFailed((Object)a, (Object)b);
             }
         }
 

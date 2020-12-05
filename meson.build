@@ -9,12 +9,16 @@ sources = files(
     'src/results/testSuiteResult.vala',
     'src/results/testCaseResult.vala',
     'src/results/testCaseState.vala',
+    'src/presenter/IPresenter.vala',
+    'src/presenter/consolePresenter.vala',
 )
 
 dependencies = [
     dependency('gio-2.0'),
     dependency('gee-0.8'),
 ]
+
+meson.get_compiler('vala').find_library('posix')
 
 libvest = static_library(
     meson.project_name(),

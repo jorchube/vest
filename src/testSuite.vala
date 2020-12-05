@@ -4,14 +4,14 @@ namespace io.github.jorchube.vest
 {
     public class Suite : Object
     {
-        public string name { get; private set; }
+        public string name { get; set; }
         public TestSuiteResult result { get; private set; }
 
         private HashMap<string, TestCaseDescriptor> TestCaseDescriptorMap;
 
         public Suite()
         {
-            name = this.get_type().name();
+            this.name = this.get_type().name();
             result = new TestSuiteResult();
         }
 
