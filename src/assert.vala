@@ -68,6 +68,22 @@ namespace io.github.jorchube.vest
             equalsComparable(a, b, message);
         }
 
+        public static void @null(Object? a) throws assertionError
+        {
+            if (a != null)
+            {
+                throw new assertionError.AssertionFailed("Expected null but was not null");
+            }
+        }
+
+        public static void @notNull(Object? a) throws assertionError
+        {
+            if (a == null)
+            {
+                throw new assertionError.AssertionFailed("Expected not null but was null");
+            }
+        }
+
         private static void equalsComparable<T>(T a, T b, string? message = null) throws assertionError
         {
             try

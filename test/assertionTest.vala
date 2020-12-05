@@ -88,6 +88,26 @@ namespace io.github.jorchube.vest.test
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectComparable(1), new ObjectComparable(2)); });
             });
+
+            test("Assert null raises on non null object", () =>
+            {
+                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.null(new ObjectComparable(1)); });
+            });
+
+            test("Assert null does not raise on null object", () =>
+            {
+                Assert.null(null);
+            });
+
+            test("Assert not null raises on null object", () =>
+            {
+                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.notNull(null); });
+            });
+
+            test("Assert not null does not raise on non null object", () =>
+            {
+                Assert.notNull(new ObjectComparable(1));
+            });
         }
 
         class ObjectTypeA : Object
