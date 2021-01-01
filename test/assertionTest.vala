@@ -33,7 +33,7 @@ namespace io.github.jorchube.vest.test
 
             test("Assert true does not raise error on true", () =>
             {
-                Assert.true(true);
+                Assert.true(false);
             });
 
             test("Assert true raises error on false", () =>
