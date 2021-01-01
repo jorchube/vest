@@ -24,6 +24,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+# Runs a single command using the runners shell
+      - name: Update repositories
+        run: sudo apt update
+
       # Runs a single command using the runners shell
       - name: Install build dependencies
         run: sudo apt install build-essential gobject-introspection libgee-0.8-dev libgirepository1.0-dev libglib2.0-dev libxml2-dev libxml2-utils meson valac valadoc
