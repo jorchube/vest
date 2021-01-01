@@ -25,6 +25,10 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
+      - name: Install build dependencies
+        run: sudo apt install meson ninja-build
+
+      # Runs a single command using the runners shell
       - name: Configure
         run: meson build
 
