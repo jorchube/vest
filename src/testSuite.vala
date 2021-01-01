@@ -6,6 +6,16 @@ namespace io.github.jorchube.vest
     {
         public string name { get; set; }
         public TestSuiteResult result { get; private set; }
+        public bool hasBeenRun
+        {
+            get { return !result.testCaseResultMap.is_empty; }
+            private set {}
+        }
+        public bool hasFailedTests
+        {
+            get { return failedTests() > 0; }
+            private set {}
+        }
 
         private HashMap<string, TestCaseDescriptor> TestCaseDescriptorMap;
 
@@ -13,6 +23,8 @@ namespace io.github.jorchube.vest
         {
             this.name = this.get_type().name();
             result = new TestSuiteResult();
+            hasBeenRun = false;
+            hasFailedTests = false;
         }
 
         public virtual void testCases() throws testlibError, assertionError

@@ -32,6 +32,8 @@ namespace io.github.jorchube.vest
             runSuites();
 
             presentSuitesResults();
+
+            exitWithStatusCode();
         }
 
         private static void runSuites()
@@ -60,6 +62,17 @@ namespace io.github.jorchube.vest
             suite.init();
 
             suite.run();
+        }
+
+        private static void exitWithStatusCode()
+        {
+            foreach (Suite suite in suites)
+            {
+                if (!suite.hasBeenRun || suite.hasFailedTests)
+                {
+                    Process.exit(-1);
+                }
+            }
         }
     }
 }
