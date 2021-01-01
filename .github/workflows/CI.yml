@@ -26,7 +26,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install build dependencies
-        run: sudo apt install meson ninja-build build-essential valac libgee-0.8-dev
+        run: sudo apt install build-essential gobject-introspection libgee-0.8-dev libgirepository1.0-dev libglib2.0-dev libxml2-dev libxml2-utils meson valac valadoc
 
       # Runs a single command using the runners shell
       - name: Configure
