@@ -13,12 +13,13 @@ sources = files(
     'src/presenter/consolePresenter.vala',
 )
 
+posix_dep = meson.get_compiler('vala').find_library('posix')
+
 dependencies = [
+    posix_dep,
     dependency('gio-2.0'),
     dependency('gee-0.8'),
 ]
-
-meson.get_compiler('vala').find_library('posix')
 
 libvest = static_library(
     meson.project_name(),
