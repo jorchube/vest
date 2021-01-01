@@ -66,12 +66,26 @@ namespace io.github.jorchube.vest
 
         private static void exitWithStatusCode()
         {
+            bool failure = false;
+
             foreach (Suite suite in suites)
             {
-                if (!suite.hasBeenRun || suite.hasFailedTests)
+                if (!suite.hasBeenRun)
                 {
-                    Process.exit(-1);
+                    stderr.printf("Suite %s has not run any test\n", suite.name);
+                    failure = true;
                 }
+
+                if (suite.hasFailedTests)
+                {
+                    stderr.printf("Suite %s has failed tests\n", suite.name);
+                    failure = true;
+                }
+            }
+
+            if (failure)
+            {
+                Process.exit(1);
             }
         }
     }
