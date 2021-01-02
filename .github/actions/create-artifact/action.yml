@@ -11,3 +11,4 @@ runs:
         shell: bash
       
       - run: mv vest-release.tar.gz vest-release-${{inputs.version}}.tar.gz
+        shell: bash
