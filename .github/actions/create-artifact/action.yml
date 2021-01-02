@@ -1,0 +1,13 @@
+inputs:
+  version:
+    description: "Version"
+    required: true
+
+runs:
+  using: "composite"
+  steps: 
+      - name: Generate artifact
+        run: ./generate-release-artifact.sh
+        shell: bash
+      
+      - run: mv vest-release.tar.gz vest-release-${{inputs.version}}.tar.gz

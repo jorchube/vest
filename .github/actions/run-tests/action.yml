@@ -1,0 +1,6 @@
+runs:
+  using: "composite"
+  steps: 
+      - name: Run tests
+        run: build/io.github.jorchube.vest.tests
+        shell: bash

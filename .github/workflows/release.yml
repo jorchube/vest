@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      major-number:
+        description: "Major version number"
+        required: true
+      minor-number:
+        description: "Minor version number"
+        required: true
+      revision-number:
+        description: "Revision version number"
+        required: true
+
+jobs:
+  make-release:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ./.github/actions/prepare-host
+
+      - uses: ./.github/actions/build
+      
+      - uses: ./.github/actions/run-tests
+
+      - uses: ./.github/actions/create-artifact
+        with:
+          version: ${{major-number}}.${{minor-number}}.${{revision-number}}
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "vest-release-*.tar.gz"
+          commit: main
+          tag: ${{major-number}}.${{minor-number}}.${{revision-number}}
+
+
+      

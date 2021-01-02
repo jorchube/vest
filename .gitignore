@@ -1,2 +1,4 @@
 build
+vest-release.tar.gz
+
 !.github/actions/build
