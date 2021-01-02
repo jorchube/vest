@@ -1,8 +1,6 @@
 runs:
   using: "composite"
   steps: 
-    - uses: actions/checkout@v2
-
     - name: Install build dependencies
       run: |
         sudo apt update
