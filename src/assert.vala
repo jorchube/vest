@@ -24,14 +24,14 @@ namespace io.github.jorchube.vest
                 }
             }
 
-            throw new assertionError.AssertionFailed("Expected error not raised");
+            throw new assertionError.AssertionFailed(message ?? "Expected error not raised");
         }
 
         public static void @true(bool b, string? message = null) throws assertionError
         {
             if (!b)
             {
-                throw new assertionError.AssertionFailed("Expected true was false");
+                throw new assertionError.AssertionFailed(message ?? "Expected true was false");
             }
         }
 
@@ -39,7 +39,7 @@ namespace io.github.jorchube.vest
         {
             if (b)
             {
-                throw new assertionError.AssertionFailed("Expected false was true");
+                throw new assertionError.AssertionFailed(message ?? "Expected false was true");
             }
         }
 
@@ -52,12 +52,12 @@ namespace io.github.jorchube.vest
                     return;
                 }
 
-                equalsFailed(a, b);
+                equalsFailed(a, b, message);
             }
 
             if (a.get_type() != b.get_type())
             {
-                equalsFailed(a, b);
+                equalsFailed(a, b, message);
             }
 
             if (a == b)
@@ -68,19 +68,19 @@ namespace io.github.jorchube.vest
             equalsComparable(a, b, message);
         }
 
-        public static void @null(Object? a) throws assertionError
+        public static void @null(Object? a, string? message = null) throws assertionError
         {
             if (a != null)
             {
-                throw new assertionError.AssertionFailed("Expected null but was not null");
+                throw new assertionError.AssertionFailed(message ?? "Expected null but was not null");
             }
         }
 
-        public static void @notNull(Object? a) throws assertionError
+        public static void @notNull(Object? a, string? message = null) throws assertionError
         {
             if (a == null)
             {
-                throw new assertionError.AssertionFailed("Expected not null but was null");
+                throw new assertionError.AssertionFailed(message ?? "Expected not null but was null");
             }
         }
 
@@ -90,18 +90,18 @@ namespace io.github.jorchube.vest
             {
                 if (((Comparable<T>)a).compare_to(b) != 0)
                 {
-                    equalsFailed((Object)a, (Object)b);
+                    equalsFailed((Object)a, (Object)b, message);
                 }
             }
             catch (Error e)
             {
-                equalsFailed((Object)a, (Object)b);
+                equalsFailed((Object)a, (Object)b, message);
             }
         }
 
-        private static void equalsFailed(Object? a, Object? b) throws assertionError
+        private static void equalsFailed(Object? a, Object? b, string? message = null) throws assertionError
         {
-            throw new assertionError.AssertionFailed("Objects were not equal");
+            throw new assertionError.AssertionFailed(message ?? "Objects were not equal");
         }
     }
 }
