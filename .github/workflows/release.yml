@@ -28,7 +28,7 @@ jobs:
 
       - uses: ./.github/actions/create-artifact
         with:
-          version: ${{major-number}}.${{minor-number}}.${{revision-number}}
+          version: ${{ inputs.major-number }}.${{ inputs.minor-number }}.${{ inputs.revision-number }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1
@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "vest-release-*.tar.gz"
           commit: main
-          tag: ${{major-number}}.${{minor-number}}.${{revision-number}}
+          tag: ${{ inputs.major-number }}.${{ inputs.minor-number }}.${{ inputs.revision-number }}
 
 
       
