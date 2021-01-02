@@ -3,6 +3,8 @@ runs:
   steps: 
       - name: Configure
         run: meson build
+        shell: bash
 
       - name: Compile
         run: ninja -C build
+        shell: bash
