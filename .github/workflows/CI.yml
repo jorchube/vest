@@ -22,21 +22,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: .github/actions/prepare-host.yml
 
-      # Runs a set of commands using the runners shell
-      - name: Install build dependencies
-        run: |
-          sudo apt update
-          sudo apt install build-essential gobject-introspection libgee-0.8-dev libgirepository1.0-dev libglib2.0-dev libxml2-dev libxml2-utils meson valac valadoc
-
-      # Runs a single command using the runners shell
-      - name: Configure
-        run: meson build
-
-      # Runs a single command using the runners shell
-      - name: Compile
-        run: ninja -C build
+      - uses: .github/actions/build.yml
       
       # Runs a single command using the runners shell
       - name: Run tests

@@ -1,0 +1,8 @@
+runs:
+  using: "composite"
+  steps: 
+      - name: Configure
+        run: meson build
+
+      - name: Compile
+        run: ninja -C build

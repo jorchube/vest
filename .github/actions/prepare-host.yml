@@ -1,0 +1,9 @@
+runs:
+  using: "composite"
+  steps: 
+    - uses: actions/checkout@v2
+
+    - name: Install build dependencies
+      run: |
+        sudo apt update
+        sudo apt install build-essential gobject-introspection libgee-0.8-dev libgirepository1.0-dev libglib2.0-dev libxml2-dev libxml2-utils meson valac valadoc
