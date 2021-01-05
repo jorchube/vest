@@ -35,6 +35,7 @@ libvest_dep = declare_dependency(
 
 test_files = files(
     'test/vestRunner.vala',
+    'test/suiteTest.vala',
     'test/assertionTest.vala',
 )
 

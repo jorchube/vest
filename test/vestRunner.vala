@@ -6,6 +6,8 @@ namespace io.github.jorchube.vest.test
     {
         Vest.init();
 
+        Vest.addSuite(new SuiteTest(), "Suite");
+
         Vest.addSuite(new AssertionTest(), "Assertions");
 
         Vest.run();

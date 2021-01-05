@@ -27,9 +27,19 @@ namespace io.github.jorchube.vest
             hasFailedTests = false;
         }
 
+        public virtual void setUp()
+        {
+
+        }
+
         public virtual void testCases() throws testlibError, assertionError
         {
             throw new testlibError.NotImplemented("Implement this function to call registerTestCase() for each suite test case");
+        }
+
+        public virtual void tearDown()
+        {
+            
         }
 
         public void init()
@@ -78,6 +88,8 @@ namespace io.github.jorchube.vest
 
         private void runTestCase(TestCaseDescriptor descriptor)
         {
+            setUp();
+            
             try
             {
                 descriptor.testCase();
@@ -87,6 +99,8 @@ namespace io.github.jorchube.vest
                 testCaseFailed(descriptor, e.message);
                 return;
             }
+
+            tearDown();
 
             testCasePassed(descriptor);
         }
