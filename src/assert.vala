@@ -43,23 +43,27 @@ namespace io.github.jorchube.vest
             }
         }
 
-        public static void equals(Object? a, Object? b, string? message = null) throws assertionError
+        public static void equals<T, S>(T a, S b, string? message = null) throws assertionError
         {
-            if (a == null)
+            if (typeof(T) != typeof(S))
             {
-                if (b == null)
-                {
-                    return;
-                }
-
-                equalsFailed(a, b, message);
+                equalsFailed(message);
+            }
+            
+            if (typeof(T).is_object())
+            {
+                objectEquals(a, b, message);
+                return;
             }
 
-            if (a.get_type() != b.get_type())
+            if (a != b)
             {
-                equalsFailed(a, b, message);
+                equalsFailed(message);
             }
+        }
 
+        private static void objectEquals<T>(T a, T b, string? message = null) throws assertionError
+        {
             if (a == b)
             {
                 return;
@@ -90,18 +94,18 @@ namespace io.github.jorchube.vest
             {
                 if (((Comparable<T>)a).compare_to(b) != 0)
                 {
-                    equalsFailed((Object)a, (Object)b, message);
+                    equalsFailed(message);
                 }
             }
             catch (Error e)
             {
-                equalsFailed((Object)a, (Object)b, message);
+                equalsFailed(message);
             }
         }
 
-        private static void equalsFailed(Object? a, Object? b, string? message = null) throws assertionError
+        private static void equalsFailed(string? message = null) throws assertionError
         {
-            throw new assertionError.AssertionFailed(message ?? "Objects were not equal");
+            throw new assertionError.AssertionFailed(message ?? "Elements were not equal");
         }
     }
 }

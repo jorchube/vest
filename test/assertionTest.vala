@@ -51,21 +51,6 @@ namespace io.github.jorchube.vest.test
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.false(true); });
             });
 
-            test("Assert equals does not raise on two null objects", () =>
-            {
-                Assert.equals(null, null);
-            });
-
-            test("Assert equals raises on one null and one not null object", () =>
-            {
-                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(null, new Object()); });
-            });
-
-            test("Assert equals does not raise on two null objects", () =>
-            {
-                Assert.equals(null, null);
-            });
-
             test("Assert equals raises on two objects of different types", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectTypeA(), new ObjectTypeB()); });
