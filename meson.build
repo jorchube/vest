@@ -4,6 +4,7 @@ sources = files(
     'src/vest.vala',
     'src/testCaseDescriptor.vala',
     'src/testSuite.vala',
+    'src/methodMock.vala',
     'src/errors.vala',
     'src/assert.vala',
     'src/results/testSuiteResult.vala',
@@ -37,6 +38,7 @@ test_files = files(
     'test/vestRunner.vala',
     'test/suiteTest.vala',
     'test/assertionTest.vala',
+    'test/methodMockTest.vala',
 )
 
 libvest_tests = executable(
