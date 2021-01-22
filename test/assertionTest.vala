@@ -51,9 +51,41 @@ namespace io.github.jorchube.vest.test
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.false(true); });
             });
 
+            test("Assert equals does not raise on two strings that are equal", () =>
+            {
+                string a = "string";
+                string b = "string";
+
+                Assert.equals(a, b);
+            });
+
+            test("Assert equals raises on two strings that are not equal", () =>
+            {
+                string a = "aaa";
+                string b = "bbb";
+
+                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(a, b); });
+            });
+
             test("Assert equals raises on two objects of different types", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectTypeA(), new ObjectTypeB()); });
+            });
+
+            test("Assert equals does not raise on two integers that are equal", () =>
+            {
+                int a = 1;
+                int b = 1;
+
+                Assert.equals(a, b);
+            });
+
+            test("Assert equals does raises on two integers that are not equal", () =>
+            {
+                int a = 1234;
+                int b = 154576;
+
+                Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(a, b); });
             });
 
             test("Assert equals does not raise on two objects with same reference", () =>

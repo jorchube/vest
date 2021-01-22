@@ -43,33 +43,62 @@ namespace io.github.jorchube.vest
             }
         }
 
-        public static void equals<T, S>(T a, S b, string? message = null) throws assertionError
+        public static void equals<T, S>(T expected, S value, string? message = null) throws assertionError
         {
             if (typeof(T) != typeof(S))
             {
                 equalsFailed(message);
+                return;
             }
             
             if (typeof(T).is_object())
             {
-                objectEquals(a, b, message);
+                objectEquals(expected, value, message);
                 return;
             }
 
-            if (a != b)
+            if (typeof(T).is_a(Type.STRING))
             {
-                equalsFailed(message);
+                stringEquals((string)expected, (string)value);
+                return;
+            }
+
+            if (typeof(T).is_a(Type.INT))
+            {
+                intEquals((int)expected, (int)value);
+                return;
+            }
+
+            if (expected != value)
+            {
+                equalsFailed("Elements were not equal");
             }
         }
 
-        private static void objectEquals<T>(T a, T b, string? message = null) throws assertionError
+        private static void intEquals(int expected, int value) throws assertionError
         {
-            if (a == b)
+            if (expected != value)
+            {
+                equalsFailed("Expected \"%d\" is not equal to \"%d\"".printf(expected, value));
+            }
+        }
+
+        private static void stringEquals(string expected, string value) throws assertionError
+        {
+            if (strcmp(expected, value) != 0)
+            {
+                equalsFailed("Expected \"%s\" is not equal to \"%s\"".printf(expected, value));
+            }
+        }
+
+        private static void objectEquals<T>(T expected, T value, string? message = null) throws assertionError
+        {
+            if (expected == value)
             {
                 return;
             }
 
-            equalsComparable(a, b, message);
+            equalsComparable(expected, value, message);
         }
 
         public static void @null(Object? a, string? message = null) throws assertionError
@@ -88,11 +117,11 @@ namespace io.github.jorchube.vest
             }
         }
 
-        private static void equalsComparable<T>(T a, T b, string? message = null) throws assertionError
+        private static void equalsComparable<T>(T expected, T value, string? message = null) throws assertionError
         {
             try
             {
-                if (((Comparable<T>)a).compare_to(b) != 0)
+                if (((Comparable<T>)expected).compare_to(value) != 0)
                 {
                     equalsFailed(message);
                 }
