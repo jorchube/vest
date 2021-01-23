@@ -5,7 +5,7 @@ namespace io.github.jorchube.vest
     public errordomain assertionError {
         AssertionFailed
     }
-    
+
     public class Assert : Object
     {
         public delegate void RaisesDelegate() throws Error;
@@ -45,12 +45,24 @@ namespace io.github.jorchube.vest
 
         public static void equals<T, S>(T expected, S value, string? message = null) throws assertionError
         {
+            if (expected == null && value != null)
+            {
+                equalsFailed("Expected null but was not null");
+                return;
+            }
+
+            if (expected != null && value == null)
+            {
+                equalsFailed("Expected not null but was null");
+                return;
+            }
+
             if (typeof(T) != typeof(S))
             {
                 equalsFailed(message);
                 return;
             }
-            
+
             if (typeof(T).is_object())
             {
                 objectEquals(expected, value, message);
