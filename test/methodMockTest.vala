@@ -85,41 +85,104 @@ namespace io.github.jorchube.vest.test
                 Assert.false(stub.aMethodMock.calledWith(4));
             });
 
-            test("It returns the given value for the given 1 argument or null otherwise", () =>
+            test("It returns the given value for the given 1 int argument or null otherwise", () =>
             {
                 AnInterfaceStub stub = new AnInterfaceStub();
 
-                stub.aMethodMock1.returns(1, "one");
-                stub.aMethodMock1.returns(2, "two");
+                stub.aMethodMock1Int.returns(1, "one");
+                stub.aMethodMock1Int.returns(2, "two");
 
-                Assert.equals("one", stub.aMethod1(1));
-                Assert.equals("two", stub.aMethod1(2));
-                Assert.null((Object)stub.aMethod1(3));
-                Assert.equals(3, stub.aMethodMock1.numCalls());
+                Assert.equals("one", stub.aMethod1Int(1));
+                Assert.equals("two", stub.aMethod1Int(2));
+                Assert.null((Object)stub.aMethod1Int(3));
+                Assert.equals(3, stub.aMethodMock1Int.numCalls());
 
-                Assert.true(stub.aMethodMock1.calledWith(1));
-                Assert.true(stub.aMethodMock1.calledWith(2));
-                Assert.true(stub.aMethodMock1.calledWith(3));
-                Assert.false(stub.aMethodMock1.calledWith(4));
+                Assert.true(stub.aMethodMock1Int.calledWith(1));
+                Assert.true(stub.aMethodMock1Int.calledWith(2));
+                Assert.true(stub.aMethodMock1Int.calledWith(3));
+                Assert.false(stub.aMethodMock1Int.calledWith(4));
             });
 
-            //  test("It returns the given value for the given 2 arguments or null otherwise", () =>
-            //  {
-            //      AnInterfaceStub stub = new AnInterfaceStub();
+            test("It returns the given value for the given 1 string argument or null otherwise", () =>
+            {
+                AnInterfaceStub stub = new AnInterfaceStub();
 
-            //      stub.aMethodMock2.returns(1, 2, "one");
-            //      stub.aMethodMock2.returns(2, 1, "two");
+                stub.aMethodMock1String.returns("one", 1);
+                stub.aMethodMock1String.returns("two", 2);
 
-            //      Assert.equals("one", stub.aMethod2(1, 2));
-            //      Assert.equals("two", stub.aMethod2(2, 1));
-            //      Assert.null((Object)stub.aMethod2(3, 2));
-            //      Assert.equals(3, stub.aMethodMock2.numCalls());
+                Assert.equals(1, stub.aMethod1String("one"));
+                Assert.equals(2, stub.aMethod1String("two"));
+                Assert.null((Object)stub.aMethod1String("three"));
+                Assert.equals(3, stub.aMethodMock1String.numCalls());
 
-            //      Assert.true(stub.aMethodMock2.calledWith(1, 2));
-            //      Assert.true(stub.aMethodMock2.calledWith(2, 1));
-            //      Assert.true(stub.aMethodMock2.calledWith(3, 2));
-            //      Assert.false(stub.aMethodMock2.calledWith(4, 5));
-            //  });
+                Assert.true(stub.aMethodMock1String.calledWith("one"));
+                Assert.true(stub.aMethodMock1String.calledWith("two"));
+                Assert.true(stub.aMethodMock1String.calledWith("three"));
+                Assert.false(stub.aMethodMock1String.calledWith("four"));
+            });
+
+            test("It returns the given value for the given 1 object argument or null otherwise", () =>
+            {
+                AnInterfaceStub stub = new AnInterfaceStub();
+
+                stub.aMethodMock1Object.returns(new AnObject(1), "one");
+                stub.aMethodMock1Object.returns(new AnObject(2), "two");
+
+                Assert.equals("one", stub.aMethod1Object(new AnObject(1)));
+                Assert.equals("two", stub.aMethod1Object(new AnObject(2)));
+                Assert.null((Object)stub.aMethod1Object(new AnObject(3)));
+                Assert.equals(3, stub.aMethodMock1Object.numCalls());
+
+                Assert.true(stub.aMethodMock1Object.calledWith(new AnObject(1)));
+                Assert.true(stub.aMethodMock1Object.calledWith(new AnObject(2)));
+                Assert.true(stub.aMethodMock1Object.calledWith(new AnObject(3)));
+                Assert.false(stub.aMethodMock1Object.calledWith(new AnObject(4)));
+            });
+
+            test("It returns the given value for the given 2 arguments or null otherwise", () =>
+            {
+                AnInterfaceStub stub = new AnInterfaceStub();
+
+                stub.aMethodMock2.returns(1, 2.2, "one");
+                stub.aMethodMock2.returns(2, 1.1, "two");
+
+                Assert.equals("one", stub.aMethod2(1, 2.2));
+                Assert.equals("two", stub.aMethod2(2, 1.1));
+                Assert.null((Object)stub.aMethod2(1, 2.1));
+                Assert.equals(3, stub.aMethodMock2.numCalls());
+
+                Assert.true(stub.aMethodMock2.calledWith(1, 2.2));
+                Assert.true(stub.aMethodMock2.calledWith(2, 1.1));
+                Assert.true(stub.aMethodMock2.calledWith(1, 2.1));
+                Assert.false(stub.aMethodMock2.calledWith(4, 5.0));
+            });
+
+            test("It returns the given value for the given 9 (LOL 9) arguments or null otherwise", () =>
+            {
+                AnInterfaceStub stub = new AnInterfaceStub();
+
+                stub.aMethodMock9.returns(1, AnEnum.A, true, 'c', 123, 0.99, "aaa", new AnObject(999), 0, "a return");
+                stub.aMethodMock9.returns(1, AnEnum.B, false, 'c', 123, 0.99, "aaa", new AnObject(333), 0, "another return");
+
+                Assert.equals("a return", stub.aMethod9(1, AnEnum.A, true, 'c', 123, 0.99, "aaa", new AnObject(999), 0));
+                Assert.equals("another return", stub.aMethod9(1, AnEnum.B, false, 'c', 123, 0.99, "aaa", new AnObject(333), 0));
+                Assert.null((Object)stub.aMethod9(1, AnEnum.B, false, 'c', 123, 0.99, "aba", new AnObject(333), 0));
+                Assert.equals(3, stub.aMethodMock9.numCalls());
+
+                Assert.true(stub.aMethodMock9.calledWith(1, AnEnum.A, true, 'c', 123, 0.99, "aaa", new AnObject(999), 0));
+                Assert.true(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 123, 0.99, "aaa", new AnObject(333), 0));
+                Assert.true(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 123, 0.99, "aba", new AnObject(333), 0));
+
+                Assert.false(stub.aMethodMock9.calledWith(0, AnEnum.B, false, 'c', 123, 0.99, "aba", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.A, false, 'c', 123, 0.99, "aba", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, true, 'c', 123, 0.99, "aba", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'd', 123, 0.99, "aba", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 124, 0.99, "aba", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 123, 0.98, "aba", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 123, 0.99, "abc", new AnObject(333), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 123, 0.99, "aba", new AnObject(334), 0));
+                Assert.false(stub.aMethodMock9.calledWith(1, AnEnum.B, false, 'c', 123, 0.99, "aba", new AnObject(333), 1));
+            });
         }
     }
 
@@ -129,8 +192,11 @@ namespace io.github.jorchube.vest.test
         public VoidMethodMock<int> aVoidMethodMock;
         public ArglessMethod<string> anArglessMethodMock;
         public MethodMock<int, string> aMethodMock;
-        public MethodMock1<int, string> aMethodMock1;
-        //  public MethodMock2<int, int, string> aMethodMock2;
+        public MethodMock1<int, string> aMethodMock1Int;
+        public MethodMock1<string, int> aMethodMock1String;
+        public MethodMock1<AnObject, string> aMethodMock1Object;
+        public MethodMock2<long, double?, string> aMethodMock2;
+        public MethodMock9<int, AnEnum, bool, char, long, double?, string, AnObject, int, string> aMethodMock9;
 
         public AnInterfaceStub()
         {
@@ -138,8 +204,11 @@ namespace io.github.jorchube.vest.test
             aVoidMethodMock = new VoidMethodMock<int>();
             anArglessMethodMock = new ArglessMethod<string>();
             aMethodMock = new MethodMock<int, string>();
-            aMethodMock1 = new MethodMock1<int, string>();
-            //  aMethodMock2 = new MethodMock2<int, int, string>();
+            aMethodMock1Int = new MethodMock1<int, string>();
+            aMethodMock1String = new MethodMock1<string, int>();
+            aMethodMock1Object = new MethodMock1<AnObject, string>();
+            aMethodMock2 = new MethodMock2<long, double?, string>();
+            aMethodMock9 = new MethodMock9<int, AnEnum, bool, char, long, double, string, AnObject, int, string>();
         }
 
         public void aVoidArglessMethod()
@@ -162,14 +231,50 @@ namespace io.github.jorchube.vest.test
             return aMethodMock.call(arg);
         }
 
-        public string aMethod1(int arg)
+        public string aMethod1Int(int arg)
         {
-            return aMethodMock1.call(arg);
+            return aMethodMock1Int.call(arg);
         }
 
-        //  public string aMethod2(int arg1, int arg2)
-        //  {
-        //      return aMethodMock2.call(arg1, arg2);
-        //  }
+        public int aMethod1String(string arg)
+        {
+            return aMethodMock1String.call(arg);
+        }
+
+        public string aMethod1Object(AnObject arg)
+        {
+            return aMethodMock1Object.call(arg);
+        }
+
+        public string aMethod2(long arg1, double arg2)
+        {
+            return aMethodMock2.call(arg1, arg2);
+        }
+
+        public string aMethod9(int arg1, AnEnum arg2, bool arg3, char arg4, long arg5, double arg6, string arg7, AnObject arg8, int arg9)
+        {
+            return aMethodMock9.call(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+        }
+    }
+
+    public enum AnEnum
+    {
+        A,
+        B
+    }
+
+    public class AnObject : Object
+    {
+        public int a {get; private set;}
+
+        public AnObject(int a)
+        {
+            this.a = a;
+        }
+
+        public string to_string()
+        {
+            return "AnObject(%d)".printf(a);
+        }
     }
 }

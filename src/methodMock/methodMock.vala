@@ -29,33 +29,4 @@ namespace io.github.jorchube.vest
             returnMap.set(arg, returnValue);
         }
     }
-
-    public class MethodMock1<T1, R> : MethodMock<MethodMockArguments, R>
-    {
-        public MethodMock1()
-        {
-            base();
-        }
-
-        public new R call(T1 arg1)
-        {
-            MethodMockArguments args = new MethodMockArguments<T1>(arg1);
-
-            return base.call(args);
-        }
-
-        public new bool calledWith(T1 arg1)
-        {
-            MethodMockArguments args = new MethodMockArguments<T1>(arg1);
-
-            return base.calledWith(args);
-        }
-
-        public new void returns(T1 arg1, R returnValue)
-        {
-            MethodMockArguments args = new MethodMockArguments<T1>(arg1);
-
-            base.returns(args, returnValue);
-        }
-    }
 }
