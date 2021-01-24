@@ -2,11 +2,13 @@ namespace io.github.jorchube.vest
 {
     public class ConsolePresenter : IPresenter, Object
     {
-        private const string COLOR_RED = "\x1b[31m";
-        private const string COLOR_GREEN = "\x1b[32m";
-        private const string COLOR_BLUE = "\x1b[34m";
-        private const string COLOR_BOLD = "\x1b[1m";
-        private const string COLOR_RESET = "\x1b[0m";
+        public class Ansi : Object
+        {
+            public const string BOLD_RED = "\x1b[31;1m";
+            public const string BOLD_GREEN = "\x1b[32;1m";
+            public const string BOLD_BLUE = "\x1b[34;1m";
+            public const string RESET = "\x1b[0m";
+        }
 
         private const int STDOUT = 1;
 
@@ -34,7 +36,7 @@ namespace io.github.jorchube.vest
         {
             if (Posix.isatty(STDOUT))
             {
-                stdout.printf("Test Suite: %s%s%s%s\n", COLOR_BOLD, COLOR_BLUE, suite.name, COLOR_RESET);
+                stdout.printf("Test Suite: %s%s%s\n", Ansi.BOLD_BLUE, suite.name, Ansi.RESET);
             }
             else
             {
@@ -58,11 +60,11 @@ namespace io.github.jorchube.vest
         {
             if (res.state == TestCaseState.FAILED)
             {
-                stdout.printf("  %s✘%s %s : FAILED : %s\n", COLOR_RED, COLOR_RESET, res.name, res.info);
+                stdout.printf("  %s✘%s %s : %sFAILED%s : %s\n", Ansi.BOLD_RED, Ansi.RESET, res.name, Ansi.BOLD_RED, Ansi.RESET, res.info);
             }
             else
             {
-                stdout.printf("  %s✔%s %s : PASSED\n", COLOR_GREEN, COLOR_RESET, res.name);
+                stdout.printf("  %s✔%s %s : %sPASSED%s\n", Ansi.BOLD_GREEN, Ansi.RESET, res.name, Ansi.BOLD_GREEN, Ansi.RESET);
             }
         }
 
