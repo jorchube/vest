@@ -124,7 +124,7 @@ namespace io.github.jorchube.vest
                     valueString = ((bool)arg).to_string();
                     break;
                 case Type.CHAR:
-                    value.set_uchar((char)arg);
+                    value.set_schar((int8)arg);
                     valueString = ((char)arg).to_string();
                     break;
                 case Type.LONG:
@@ -148,7 +148,7 @@ namespace io.github.jorchube.vest
                     }
                     if (typeof(TN).is_a(Type.ENUM))
                     {
-                        value.set_int((int)arg);
+                        value.set_enum((int)arg);
                         valueString = ((int)arg).to_string();
                         break;
                     }
