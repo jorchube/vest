@@ -6,6 +6,7 @@ sources = files(
     'src/testSuite.vala',
     'src/methodMock/voidArglessMethodMock.vala',
     'src/methodMock/voidMethodMock.vala',
+    'src/methodMock/voidMethodMockN.vala',
     'src/methodMock/arglessMethodMock.vala',
     'src/methodMock/methodMock.vala',
     'src/methodMock/methodMockN.vala',
