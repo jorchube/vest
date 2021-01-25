@@ -278,7 +278,7 @@ namespace io.github.jorchube.vest.test
 
         public void aVoidMethod9(int arg1, AnEnum arg2, bool arg3, char arg4, long arg5, double arg6, string arg7, AnObject arg8, int arg9)
         {
-            aMethodMock9.call(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+            aVoidMethodMock9.call(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
         }
 
         public string aMethod9(int arg1, AnEnum arg2, bool arg3, char arg4, long arg5, double arg6, string arg7, AnObject arg8, int arg9)

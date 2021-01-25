@@ -79,8 +79,6 @@ namespace io.github.jorchube.vest
 
             strBuilder.append(")");
 
-            stdout.printf(">>> %s || hash : %u\n", strBuilder.str, strBuilder.str.hash());
-
             return strBuilder.str;
         }
 
@@ -118,10 +116,16 @@ namespace io.github.jorchube.vest
             switch(typeof(TN))
             {
                 case Type.INT:
-                case Type.BOOLEAN:
-                case Type.CHAR:
                     value.set_int((int)arg);
                     valueString = ((int)arg).to_string();
+                    break;
+                case Type.BOOLEAN:
+                    value.set_boolean((bool)arg);
+                    valueString = ((bool)arg).to_string();
+                    break;
+                case Type.CHAR:
+                    value.set_uchar((char)arg);
+                    valueString = ((char)arg).to_string();
                     break;
                 case Type.LONG:
                     value.set_long((long)arg);
