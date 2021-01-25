@@ -2,7 +2,7 @@ using io.github.jorchube.vest;
 
 namespace io.github.jorchube.vest.test
 {
-    class SuiteTest : Suite
+    public class SuiteTest : Suite
     {
         private bool setupCalled = false;
 

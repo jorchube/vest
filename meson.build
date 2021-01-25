@@ -4,6 +4,14 @@ sources = files(
     'src/vest.vala',
     'src/testCaseDescriptor.vala',
     'src/testSuite.vala',
+    'src/methodMock/voidArglessMethodMock.vala',
+    'src/methodMock/voidMethodMock.vala',
+    'src/methodMock/voidMethodMockN.vala',
+    'src/methodMock/arglessMethodMock.vala',
+    'src/methodMock/methodMock.vala',
+    'src/methodMock/methodMockN.vala',
+    'src/methodMock/methodMockArguments.vala',
+    'src/methodMock/objectToString.vala',
     'src/errors.vala',
     'src/assert.vala',
     'src/results/testSuiteResult.vala',
@@ -37,6 +45,7 @@ test_files = files(
     'test/vestRunner.vala',
     'test/suiteTest.vala',
     'test/assertionTest.vala',
+    'test/methodMockTest.vala',
 )
 
 libvest_tests = executable(

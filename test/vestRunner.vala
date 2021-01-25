@@ -10,6 +10,8 @@ namespace io.github.jorchube.vest.test
 
         Vest.addSuite(new AssertionTest(), "Assertions");
 
+        Vest.addSuite(new MethodMockTest(), "MethodMock");
+
         Vest.run();
     }
 }
