@@ -64,7 +64,7 @@ namespace io.github.jorchube.vest
             }
             else
             {
-                stdout.printf("  %s✔%s %s : %sPASSED%s\n", Ansi.BOLD_GREEN, Ansi.RESET, res.name, Ansi.BOLD_GREEN, Ansi.RESET);
+                stdout.printf("  %s✔%s %s : %sPASSED%s (%0.3f ms)\n", Ansi.BOLD_GREEN, Ansi.RESET, res.name, Ansi.BOLD_GREEN, Ansi.RESET, res.elapsedMilliseconds);
             }
         }
 
@@ -76,7 +76,7 @@ namespace io.github.jorchube.vest
             }
             else
             {
-                stdout.printf("  ✔ %s : PASSED\n", res.name);
+                stdout.printf("  ✔ %s : PASSED (%0.3f ms)\n", res.name, res.elapsedMilliseconds);
             }
         }
     }

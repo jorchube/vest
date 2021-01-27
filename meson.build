@@ -3,6 +3,7 @@ project('io.github.jorchube.vest', 'vala', 'c')
 sources = files(
     'src/vest.vala',
     'src/testCaseDescriptor.vala',
+    'src/testCaseRunner.vala',
     'src/testSuite.vala',
     'src/methodMock/voidArglessMethodMock.vala',
     'src/methodMock/voidMethodMock.vala',

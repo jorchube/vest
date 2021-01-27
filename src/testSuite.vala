@@ -4,6 +4,9 @@ namespace io.github.jorchube.vest
 {
     public class Suite : Object
     {
+        public delegate void SetupDelegate();
+        public delegate void TeardownDelegate();
+
         public string name { get; set; }
         public TestSuiteResult result { get; private set; }
         public bool hasBeenRun
@@ -39,7 +42,7 @@ namespace io.github.jorchube.vest
 
         public virtual void tearDown()
         {
-            
+
         }
 
         public void init()
@@ -64,16 +67,11 @@ namespace io.github.jorchube.vest
 
         public void run()
         {
-            foreach(string key in TestCaseDescriptorMap.keys)
+            TestCaseDescriptorMap.foreach((key_value) =>
             {
-                TestCaseDescriptor descriptor = TestCaseDescriptorMap.get(key);
-                runTestCase(descriptor);
-            }
-        }
-
-        public string resultSummary()
-        {
-            return "%d PASSED %d FAILED %d IGNORED".printf(passedTests(), failedTests(), 0);
+                runTestCase(key_value.value);
+                return true;
+            });
         }
 
         public int passedTests()
@@ -88,39 +86,15 @@ namespace io.github.jorchube.vest
 
         private void runTestCase(TestCaseDescriptor descriptor)
         {
-            setUp();
-            
-            try
-            {
-                descriptor.testCase();
-            }
-            catch (Error e)
-            {
-                testCaseFailed(descriptor, e.message);
-                return;
-            }
+            TestCaseResult caseResult = TestCaseRunner.run(descriptor, setUp, tearDown);
 
-            tearDown();
-
-            testCasePassed(descriptor);
-        }
-
-        private void testCaseFailed(TestCaseDescriptor descriptor, string info)
-        {
-            TestCaseResult res = new TestCaseResult(descriptor.name, TestCaseState.FAILED, info);
-            result.testCaseResultMap.set(descriptor.name, res);
-        }
-
-        private void testCasePassed(TestCaseDescriptor descriptor)
-        {
-            TestCaseResult res = new TestCaseResult(descriptor.name, TestCaseState.PASSED);
-            result.testCaseResultMap.set(descriptor.name, res);
+            result.testCaseResultMap.set(descriptor.name, caseResult);
         }
 
         private void exitWithError(string message)
         {
             stdout.printf(message);
-            
+
             Process.exit(-1);
         }
     }
