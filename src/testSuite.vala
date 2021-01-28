@@ -11,7 +11,7 @@ namespace io.github.jorchube.vest
         public TestSuiteResult result { get; private set; }
         public bool hasBeenRun
         {
-            get { return !result.testCaseResultMap.is_empty; }
+            get { return !result.testCaseResults.is_empty; }
             private set {}
         }
         public bool hasFailedTests
@@ -20,7 +20,7 @@ namespace io.github.jorchube.vest
             private set {}
         }
 
-        private HashMap<string, TestCaseDescriptor> TestCaseDescriptorMap;
+        private LinkedList<TestCaseDescriptor> TestCaseDescriptors;
 
         public Suite()
         {
@@ -47,7 +47,7 @@ namespace io.github.jorchube.vest
 
         public void init()
         {
-            TestCaseDescriptorMap = new HashMap<string, TestCaseDescriptor>();
+            TestCaseDescriptors = new LinkedList<TestCaseDescriptor>();
 
             try
             {
@@ -62,33 +62,32 @@ namespace io.github.jorchube.vest
 
         public void test(string name, TestCaseDelegate testCase)
         {
-            TestCaseDescriptorMap.set(name, new TestCaseDescriptor(name, testCase));
+            TestCaseDescriptors.add(new TestCaseDescriptor(name, testCase));
         }
 
         public void run()
         {
-            TestCaseDescriptorMap.foreach((key_value) =>
+            foreach(TestCaseDescriptor descriptor in TestCaseDescriptors)
             {
-                runTestCase(key_value.value);
-                return true;
-            });
+                runTestCase(descriptor);
+            }
         }
 
         public int passedTests()
         {
-            return result.testCaseResultMap.fold<int>( (entry, count) => { return entry.value.state == TestCaseState.PASSED ? count+1 : count; }, 0);
+            return result.testCaseResults.fold<int>( (entry, count) => { return entry.state == TestCaseState.PASSED ? count+1 : count; }, 0);
         }
 
         public int failedTests()
         {
-            return result.testCaseResultMap.fold<int>( (entry, count) => { return entry.value.state == TestCaseState.FAILED ? count+1 : count; }, 0);
+            return result.testCaseResults.fold<int>( (entry, count) => { return entry.state == TestCaseState.FAILED ? count+1 : count; }, 0);
         }
 
         private void runTestCase(TestCaseDescriptor descriptor)
         {
             TestCaseResult caseResult = TestCaseRunner.run(descriptor, setUp, tearDown);
 
-            result.testCaseResultMap.set(descriptor.name, caseResult);
+            result.testCaseResults.add(caseResult);
         }
 
         private void exitWithError(string message)

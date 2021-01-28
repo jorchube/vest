@@ -23,11 +23,12 @@ namespace io.github.jorchube.vest
         private static void presentSuiteResult(Suite suite)
         {
             presentTestSuiteName(suite);
-            foreach(string key in suite.result.testCaseResultMap.keys)
+
+            foreach(TestCaseResult res in suite.result.testCaseResults)
             {
-                TestCaseResult res = suite.result.testCaseResultMap.get(key);
                 presentTestCaseResult(res);
             }
+
             stdout.printf("%d PASSED %d FAILED %d IGNORED\n", suite.passedTests(), suite.failedTests(), 0);
             stdout.printf("------------------------------\n");
         }
@@ -64,7 +65,7 @@ namespace io.github.jorchube.vest
             }
             else
             {
-                stdout.printf("  %s✔%s %s : %sPASSED%s (%0.3f ms)\n", Ansi.BOLD_GREEN, Ansi.RESET, res.name, Ansi.BOLD_GREEN, Ansi.RESET, res.elapsedMilliseconds);
+                stdout.printf("  %s✔%s %s : %sPASSED%s : %0.3f ms\n", Ansi.BOLD_GREEN, Ansi.RESET, res.name, Ansi.BOLD_GREEN, Ansi.RESET, res.elapsedMilliseconds);
             }
         }
 
@@ -76,7 +77,7 @@ namespace io.github.jorchube.vest
             }
             else
             {
-                stdout.printf("  ✔ %s : PASSED (%0.3f ms)\n", res.name, res.elapsedMilliseconds);
+                stdout.printf("  ✔ %s : PASSED : %0.3f ms\n", res.name, res.elapsedMilliseconds);
             }
         }
     }
