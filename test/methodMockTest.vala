@@ -6,7 +6,7 @@ namespace io.github.jorchube.vest.test
     {
         public override void testCases ()
         {
-            test("It returns method number of calls", () =>
+            test("It returns the number of calls made to a method", () =>
             {
                 AnInterfaceStub stub = new AnInterfaceStub();
 
@@ -19,7 +19,7 @@ namespace io.github.jorchube.vest.test
                 Assert.equals(2, stub.aVoidArglessMethodMock.numCalls());
             });
 
-            test("It returns true if call has been made with given argument", () =>
+            test("It returns true if a call has been made with the given argument", () =>
             {
                 AnInterfaceStub stub = new AnInterfaceStub();
 
@@ -30,7 +30,7 @@ namespace io.github.jorchube.vest.test
                 Assert.true(stub.aVoidMethodMock.calledWith(3));
             });
 
-            test("It returns the given return value", () =>
+            test("It returns the given return value when calling the method", () =>
             {
                 AnInterfaceStub stub = new AnInterfaceStub();
 
@@ -42,7 +42,7 @@ namespace io.github.jorchube.vest.test
                 Assert.equals("to return", ret);
             });
 
-            test("It returns the given return values in the same order as set up", () =>
+            test("It returns the given return values in the same order as set up for consecutive calls", () =>
             {
                 AnInterfaceStub stub = new AnInterfaceStub();
 

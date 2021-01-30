@@ -13,12 +13,12 @@ namespace io.github.jorchube.vest.test
 
         public override void testCases ()
         {
-            test("Should call custom setup", () =>
+            test("It calls the suite setup method", () =>
             {
                 Assert.true(setupCalled);
             });
-            
-            test("Should call custom teardown", () =>
+
+            test("It calls the suite teardown method", () =>
             {
                 SuiteWithTeardown teardownSuite = new SuiteWithTeardown();
 
@@ -46,7 +46,7 @@ namespace io.github.jorchube.vest.test
         public override void testCases ()
         {
             test("a test to force a teardown call", ()=>
-            {    
+            {
             });
         }
     }

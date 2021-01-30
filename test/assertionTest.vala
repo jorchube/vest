@@ -7,12 +7,12 @@ namespace io.github.jorchube.vest.test
     {
         public override void testCases ()
         {
-            test("Assert raises does not raise for expected error", () =>
+            test("Assert.raises() does not raise for expected error", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { throw new assertionError.AssertionFailed("ouch"); });
             });
 
-            test("Assert raises does raise for unexpected error", () =>
+            test("Assert.raises() does raise for unexpected error", () =>
             {
                 bool raised = false;
 
@@ -31,27 +31,27 @@ namespace io.github.jorchube.vest.test
                 }
             });
 
-            test("Assert true does not raise error on true", () =>
+            test("Assert.true() does not raise error on true", () =>
             {
                 Assert.true(true);
             });
 
-            test("Assert true raises error on false", () =>
+            test("Assert.true() raises error on false", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.true(false); });
             });
 
-            test("Assert false does not raise error on false", () =>
+            test("Assert.false() does not raise error on false", () =>
             {
                 Assert.false(false);
             });
 
-            test("Assert false raises error on true", () =>
+            test("Assert.false() raises error on true", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.false(true); });
             });
 
-            test("Assert equals does not raise on two strings that are equal", () =>
+            test("Assert.equals() does not raise on two strings that are equal", () =>
             {
                 string a = "string";
                 string b = "string";
@@ -59,7 +59,7 @@ namespace io.github.jorchube.vest.test
                 Assert.equals(a, b);
             });
 
-            test("Assert equals raises on two strings that are not equal", () =>
+            test("Assert.equals() raises on two strings that are not equal", () =>
             {
                 string a = "aaa";
                 string b = "bbb";
@@ -67,12 +67,12 @@ namespace io.github.jorchube.vest.test
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(a, b); });
             });
 
-            test("Assert equals raises on two objects of different types", () =>
+            test("Assert.equals() raises on two objects of different types", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectTypeA(), new ObjectTypeB()); });
             });
 
-            test("Assert equals does not raise on two integers that are equal", () =>
+            test("Assert.equals() does not raise on two integers that are equal", () =>
             {
                 int a = 1;
                 int b = 1;
@@ -80,7 +80,7 @@ namespace io.github.jorchube.vest.test
                 Assert.equals(a, b);
             });
 
-            test("Assert equals does raises on two integers that are not equal", () =>
+            test("Assert.equals() does raises on two integers that are not equal", () =>
             {
                 int a = 1234;
                 int b = 154576;
@@ -88,7 +88,7 @@ namespace io.github.jorchube.vest.test
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(a, b); });
             });
 
-            test("Assert equals does not raise on two objects with same reference", () =>
+            test("Assert.equals() does not raise on two objects with same reference", () =>
             {
                 Object a = new Object();
                 Object b = a;
@@ -96,32 +96,32 @@ namespace io.github.jorchube.vest.test
                 Assert.equals(a, b);
             });
 
-            test("Assert equals does not raise on two comparable objects that are equal", () =>
+            test("Assert.equals() does not raise on two comparable objects that are equal", () =>
             {
                 Assert.equals(new ObjectComparable(1), new ObjectComparable(1));
             });
 
-            test("Assert equals raises on two comparable objects that are not equal", () =>
+            test("Assert.equals() raises on two comparable objects that are not equal", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.equals(new ObjectComparable(1), new ObjectComparable(2)); });
             });
 
-            test("Assert null raises on non null object", () =>
+            test("Assert.null() raises on non null object", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.null(new ObjectComparable(1)); });
             });
 
-            test("Assert null does not raise on null object", () =>
+            test("Assert.null() does not raise on null object", () =>
             {
                 Assert.null(null);
             });
 
-            test("Assert not null raises on null object", () =>
+            test("Assert.notNull() raises on null object", () =>
             {
                 Assert.raises(new assertionError.AssertionFailed(""), () => { Assert.notNull(null); });
             });
 
-            test("Assert not null does not raise on non null object", () =>
+            test("Assert.notNull() does not raise on non null object", () =>
             {
                 Assert.notNull(new ObjectComparable(1));
             });
