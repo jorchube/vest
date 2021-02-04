@@ -77,7 +77,7 @@ namespace io.github.jorchube.vest.test
 
                 xunitPresenter.present(results);
 
-                Assert.equals(1, fswrapper.writeTextFileMock.numCalls());
+                Assert.equals(2, fswrapper.writeTextFileMock.numCalls());
                 Assert.equals(expectedReportPath, fswrapper.writeTextFile_path);
                 assertXmlAreEqual(ExpectedContent.oneFailingAndOnePassingTestResultSuite, fswrapper.writeTextFile_content);
             });
