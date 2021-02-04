@@ -7,16 +7,24 @@ namespace io.github.jorchube.vest
         public delegate void SetupDelegate();
         public delegate void TeardownDelegate();
 
-        public string name { get; set; }
         public TestSuiteResult result { get; private set; }
+
+        private string _name;
+        public string name
+        {
+            get { return _name; }
+            set { setName(value); }
+        }
+
         public bool hasBeenRun
         {
             get { return !result.testCaseResults.is_empty; }
             private set {}
         }
+
         public bool hasFailedTests
         {
-            get { return failedTests() > 0; }
+            get { return result.failedTests() > 0; }
             private set {}
         }
 
@@ -24,8 +32,8 @@ namespace io.github.jorchube.vest
 
         public Suite()
         {
-            this.name = this.get_type().name();
             result = new TestSuiteResult();
+            this.name = this.get_type().name();
             hasBeenRun = false;
             hasFailedTests = false;
         }
@@ -73,16 +81,6 @@ namespace io.github.jorchube.vest
             }
         }
 
-        public int passedTests()
-        {
-            return result.testCaseResults.fold<int>( (entry, count) => { return entry.state == TestCaseState.PASSED ? count+1 : count; }, 0);
-        }
-
-        public int failedTests()
-        {
-            return result.testCaseResults.fold<int>( (entry, count) => { return entry.state == TestCaseState.FAILED ? count+1 : count; }, 0);
-        }
-
         private void runTestCase(TestCaseDescriptor descriptor)
         {
             TestCaseResult caseResult = TestCaseRunner.run(descriptor, setUp, tearDown);
@@ -95,6 +93,12 @@ namespace io.github.jorchube.vest
             stdout.printf(message);
 
             Process.exit(-1);
+        }
+
+        private void setName(string name)
+        {
+            _name = name;
+            result.suiteName = name;
         }
     }
 }

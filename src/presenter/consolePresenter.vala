@@ -1,3 +1,5 @@
+using Gee;
+
 namespace io.github.jorchube.vest
 {
     public class ConsolePresenter : IPresenter, Object
@@ -12,36 +14,36 @@ namespace io.github.jorchube.vest
 
         private const int STDOUT = 1;
 
-        public void present(Gee.List<Suite> suites)
+        public void present(Collection<TestSuiteResult> results)
         {
-            foreach (Suite suite in suites)
+            foreach(TestSuiteResult result in results)
             {
-                presentSuiteResult(suite);
+                presentSuiteResult(result);
             }
         }
 
-        private static void presentSuiteResult(Suite suite)
+        private static void presentSuiteResult(TestSuiteResult result)
         {
-            presentTestSuiteName(suite);
+            presentTestSuiteName(result.suiteName);
 
-            foreach(TestCaseResult res in suite.result.testCaseResults)
+            foreach(TestCaseResult res in result.testCaseResults)
             {
                 presentTestCaseResult(res);
             }
 
-            stdout.printf("%d PASSED %d FAILED %d IGNORED\n", suite.passedTests(), suite.failedTests(), 0);
+            stdout.printf("%d PASSED %d FAILED %d IGNORED\n", result.passedTests(), result.failedTests(), 0);
             stdout.printf("------------------------------\n");
         }
 
-        private static void presentTestSuiteName(Suite suite)
+        private static void presentTestSuiteName(string name)
         {
             if (Posix.isatty(STDOUT))
             {
-                stdout.printf("Test Suite: %s%s%s\n", Ansi.BOLD_BLUE, suite.name, Ansi.RESET);
+                stdout.printf("Test Suite: %s%s%s\n", Ansi.BOLD_BLUE, name, Ansi.RESET);
             }
             else
             {
-                stdout.printf("Test Suite: %s\n", suite.name);
+                stdout.printf("Test Suite: %s\n", name);
             }
         }
 

@@ -5,6 +5,8 @@ sources = files(
     'src/testCaseDescriptor.vala',
     'src/testCaseRunner.vala',
     'src/testSuite.vala',
+    'src/filesystem/IFileSystemWrapper.vala',
+    'src/filesystem/fileSystemWrapper.vala',
     'src/methodMock/voidArglessMethodMock.vala',
     'src/methodMock/voidMethodMock.vala',
     'src/methodMock/voidMethodMockN.vala',
@@ -20,6 +22,7 @@ sources = files(
     'src/results/testCaseState.vala',
     'src/presenter/IPresenter.vala',
     'src/presenter/consolePresenter.vala',
+    'src/presenter/xunitPresenter.vala',
 )
 
 posix_dep = meson.get_compiler('vala').find_library('posix')
@@ -28,6 +31,7 @@ dependencies = [
     posix_dep,
     dependency('gio-2.0'),
     dependency('gee-0.8'),
+    dependency('libxml-2.0'),
 ]
 
 libvest = static_library(
@@ -47,6 +51,7 @@ test_files = files(
     'test/suiteTest.vala',
     'test/assertionTest.vala',
     'test/methodMockTest.vala',
+    'test/xunitPresenterTest.vala',
 )
 
 libvest_tests = executable(

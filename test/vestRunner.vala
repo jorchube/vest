@@ -12,6 +12,8 @@ namespace io.github.jorchube.vest.test
 
         Vest.addSuite(new MethodMockTest(), "MethodMock");
 
+        Vest.addSuite(new XunitPresenterTest(), "Xunit presenter");
+
         Vest.run();
     }
 }

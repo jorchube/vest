@@ -3,7 +3,7 @@ using Gee;
 namespace io.github.jorchube.vest
 {
     public delegate void TestCaseDelegate() throws assertionError;
-    
+
     public class Vest
     {
         static LinkedList<Suite> suites;
@@ -14,7 +14,8 @@ namespace io.github.jorchube.vest
             Vest.suites = new LinkedList<Suite>();
             Vest.presenters = new LinkedList<IPresenter>();
 
-            addDefaultPresenter();
+            addConsolePresenter();
+            addXunitPresenter();
         }
 
         public static void addSuite(Suite suite, string? customName = null)
@@ -46,15 +47,24 @@ namespace io.github.jorchube.vest
 
         private static void presentSuitesResults()
         {
+            Collection<TestSuiteResult> results = new LinkedList<TestSuiteResult>();
+            results.add_all_iterator(suites.map<TestSuiteResult>(s => s.result));
+
             foreach (IPresenter presenter in presenters)
             {
-                presenter.present(suites);
+                presenter.present(results);
             }
         }
 
-        private static void addDefaultPresenter()
+        private static void addConsolePresenter()
         {
             presenters.add(new ConsolePresenter());
+        }
+
+        private static void addXunitPresenter()
+        {
+            XunitPresenter presenter = new XunitPresenter(new FileSystemWrapper());
+            presenters.add(presenter);
         }
 
         private static void runSuite(Suite suite)
