@@ -17,5 +17,11 @@ jobs:
       - uses: ./.github/actions/prepare-host
 
       - uses: ./.github/actions/build
-      
+
       - uses: ./.github/actions/run-tests
+
+      - uses: EnricoMi/publish-unit-test-result-action@v1.6
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: test_results.xml
