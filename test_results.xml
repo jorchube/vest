@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
   <testsuite name="Suite">
-    <testcase name="It calls the suite setup method" time="0.000"/>
-    <testcase name="It calls the suite teardown method" time="0.000"/>
+    <testcase classname="" name="It calls the suite setup method" time="0.000"/>
+    <testcase classname="" name="It calls the suite teardown method" time="0.000"/>
   </testsuite>
   <testsuite name="Assertions">
-    <testcase name="Assert.raises() does not raise for expected error" time="0.000"/>
-    <testcase name="Assert.raises() does raise for unexpected error" time="0.000"/>
-    <testcase name="Assert.true() does not raise error on true" time="0.000"/>
-    <testcase name="Assert.true() raises error on false" time="0.000"/>
-    <testcase name="Assert.false() does not raise error on false" time="0.000"/>
-    <testcase name="Assert.false() raises error on true" time="0.000"/>
-    <testcase name="Assert.equals() does not raise on two strings that are equal" time="0.000"/>
-    <testcase name="Assert.equals() raises on two strings that are not equal" time="0.000"/>
-    <testcase name="Assert.equals() raises on two objects of different types" time="0.000"/>
-    <testcase name="Assert.equals() does not raise on two integers that are equal" time="0.000"/>
-    <testcase name="Assert.equals() does raises on two integers that are not equal" time="0.000"/>
-    <testcase name="Assert.equals() does not raise on two objects with same reference" time="0.000"/>
-    <testcase name="Assert.equals() does not raise on two comparable objects that are equal" time="0.000"/>
-    <testcase name="Assert.equals() raises on two comparable objects that are not equal" time="0.000"/>
-    <testcase name="Assert.null() raises on non null object" time="0.000"/>
-    <testcase name="Assert.null() does not raise on null object" time="0.000"/>
-    <testcase name="Assert.notNull() raises on null object" time="0.000"/>
-    <testcase name="Assert.notNull() does not raise on non null object" time="0.000"/>
+    <testcase classname="" name="Assert.raises() does not raise for expected error" time="0.000"/>
+    <testcase classname="" name="Assert.raises() does raise for unexpected error" time="0.000"/>
+    <testcase classname="" name="Assert.true() does not raise error on true" time="0.000"/>
+    <testcase classname="" name="Assert.true() raises error on false" time="0.000"/>
+    <testcase classname="" name="Assert.false() does not raise error on false" time="0.000"/>
+    <testcase classname="" name="Assert.false() raises error on true" time="0.000"/>
+    <testcase classname="" name="Assert.equals() does not raise on two strings that are equal" time="0.000"/>
+    <testcase classname="" name="Assert.equals() raises on two strings that are not equal" time="0.000"/>
+    <testcase classname="" name="Assert.equals() raises on two objects of different types" time="0.000"/>
+    <testcase classname="" name="Assert.equals() does not raise on two integers that are equal" time="0.000"/>
+    <testcase classname="" name="Assert.equals() does raises on two integers that are not equal" time="0.000"/>
+    <testcase classname="" name="Assert.equals() does not raise on two objects with same reference" time="0.000"/>
+    <testcase classname="" name="Assert.equals() does not raise on two comparable objects that are equal" time="0.000"/>
+    <testcase classname="" name="Assert.equals() raises on two comparable objects that are not equal" time="0.000"/>
+    <testcase classname="" name="Assert.null() raises on non null object" time="0.000"/>
+    <testcase classname="" name="Assert.null() does not raise on null object" time="0.000"/>
+    <testcase classname="" name="Assert.notNull() raises on null object" time="0.000"/>
+    <testcase classname="" name="Assert.notNull() does not raise on non null object" time="0.000"/>
   </testsuite>
   <testsuite name="MethodMock">
-    <testcase name="It returns the number of calls made to a method" time="0.000"/>
-    <testcase name="It returns true if a call has been made with the given argument" time="0.000"/>
-    <testcase name="It returns the given return value when calling the method" time="0.000"/>
-    <testcase name="It returns the given return values in the same order as set up for consecutive calls" time="0.000"/>
-    <testcase name="It returns null if no more return values have been set up" time="0.000"/>
-    <testcase name="It returns the given value for the given argument or null otherwise" time="0.000"/>
-    <testcase name="It returns the given value for the given 1 int argument or null otherwise" time="0.000"/>
-    <testcase name="It returns the given value for the given 1 string argument or null otherwise" time="0.000"/>
-    <testcase name="It returns the given value for the given 1 object argument or null otherwise" time="0.000"/>
-    <testcase name="It returns the given value for the given 2 arguments or null otherwise" time="0.000"/>
-    <testcase name="It returns true if a call has been done with the given 9 (LOL 9) arguments" time="0.001"/>
-    <testcase name="It returns the given value for the given 9 (LOL 9) arguments or null otherwise" time="0.001"/>
+    <testcase classname="" name="It returns the number of calls made to a method" time="0.000"/>
+    <testcase classname="" name="It returns true if a call has been made with the given argument" time="0.000"/>
+    <testcase classname="" name="It returns the given return value when calling the method" time="0.000"/>
+    <testcase classname="" name="It returns the given return values in the same order as set up for consecutive calls" time="0.000"/>
+    <testcase classname="" name="It returns null if no more return values have been set up" time="0.000"/>
+    <testcase classname="" name="It returns the given value for the given argument or null otherwise" time="0.000"/>
+    <testcase classname="" name="It returns the given value for the given 1 int argument or null otherwise" time="0.000"/>
+    <testcase classname="" name="It returns the given value for the given 1 string argument or null otherwise" time="0.000"/>
+    <testcase classname="" name="It returns the given value for the given 1 object argument or null otherwise" time="0.001"/>
+    <testcase classname="" name="It returns the given value for the given 2 arguments or null otherwise" time="0.000"/>
+    <testcase classname="" name="It returns true if a call has been done with the given 9 (LOL 9) arguments" time="0.001"/>
+    <testcase classname="" name="It returns the given value for the given 9 (LOL 9) arguments or null otherwise" time="0.001"/>
   </testsuite>
   <testsuite name="Xunit presenter">
-    <testcase name="It creates a xunit presenter" time="0.000"/>
-    <testcase name="It creates an empty xunit test report" time="0.000"/>
-    <testcase name="It creates an xunit test report with one empty suite" time="0.000"/>
-    <testcase name="It creates an xunit test report with one suite with one passing test" time="0.000"/>
-    <testcase name="It creates an xunit test report with one suite with one failing test" time="0.000"/>
-    <testcase name="It creates an xunit test report with one suite with one failing test and one passing test" time="0.000"/>
+    <testcase classname="" name="It creates a xunit presenter" time="0.000"/>
+    <testcase classname="" name="It creates an empty xunit test report" time="0.000"/>
+    <testcase classname="" name="It creates an xunit test report with one empty suite" time="0.000"/>
+    <testcase classname="" name="It creates an xunit test report with one suite with one passing test" time="0.000"/>
+    <testcase classname="" name="It creates an xunit test report with one suite with one failing test" time="0.000"/>
+    <testcase classname="" name="It creates an xunit test report with one suite with one failing test and one passing test" time="0.000"/>
   </testsuite>
 </testsuites>

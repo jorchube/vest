@@ -112,13 +112,13 @@ namespace io.github.jorchube.vest.test
         <testsuites><testsuite name=\"Empty Suite\"></testsuite></testsuites>";
 
         public const string onePassingTestResultSuite = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-        <testsuites><testsuite name=\"One Passing Test Result Suite\"><testcase name=\"It is a passing test case\" time=\"1.234\"/></testsuite></testsuites>";
+        <testsuites><testsuite name=\"One Passing Test Result Suite\"><testcase classname=\"\" name=\"It is a passing test case\" time=\"1.234\"/></testsuite></testsuites>";
 
         public const string oneFailingTestResultSuite = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-        <testsuites><testsuite name=\"One Failing Test Result Suite\"><testcase name=\"It is a failing test case\"><failure message=\"Failed because stonks\"/></testcase></testsuite></testsuites>";
+        <testsuites><testsuite name=\"One Failing Test Result Suite\"><testcase classname=\"\" name=\"It is a failing test case\"><failure message=\"Failed because stonks\"/></testcase></testsuite></testsuites>";
 
         public const string oneFailingAndOnePassingTestResultSuite = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-        <testsuites><testsuite name=\"One Failing And One Passing Test Result Suite\"><testcase name=\"It is a failing test case\"><failure message=\"Failed because stonks\"/></testcase><testcase name=\"It is a passing test case\" time=\"1.234\"/></testsuite></testsuites>";
+        <testsuites><testsuite name=\"One Failing And One Passing Test Result Suite\"><testcase classname=\"\" name=\"It is a failing test case\"><failure message=\"Failed because stonks\"/></testcase><testcase classname=\"\" name=\"It is a passing test case\" time=\"1.234\"/></testsuite></testsuites>";
     }
 
     public class TestSuiteResultSamples : Object
@@ -171,9 +171,6 @@ namespace io.github.jorchube.vest.test
 
     public void assertXmlAreEqual(string expectedXml, string actualXml) throws assertionError
     {
-        stdout.printf("PRE EXPECTED: %s\n", expectedXml);
-        stdout.printf("PRE ACTUAL: %s\n", actualXml);
-
         Xml.Doc *expected = Xml.Parser.parse_doc(expectedXml);
         Xml.Doc *actual = Xml.Parser.parse_doc(actualXml);
 
@@ -182,9 +179,6 @@ namespace io.github.jorchube.vest.test
 
         expected->dump_memory_enc_format(out expectedString);
         actual->dump_memory_enc_format(out actualString);
-
-        stdout.printf("EXPECTED: %s\n", expectedString);
-        stdout.printf("ACTUAL: %s\n", actualString);
 
         Assert.equals(expectedString, actualString);
     }

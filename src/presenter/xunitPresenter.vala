@@ -95,6 +95,7 @@ namespace io.github.jorchube.vest
         private Xml.Node* testCaseNodePartial(string name)
         {
             Xml.Node *node = node("testcase");
+            addNodeClassname(node, "");
             addNodeName(node, name);
 
             return node;
@@ -116,6 +117,11 @@ namespace io.github.jorchube.vest
         private void addNodeName(Xml.Node* node, string name)
         {
             node->new_prop("name", name);
+        }
+
+        private void addNodeClassname(Xml.Node* node, string name)
+        {
+            node->new_prop("classname", name);
         }
 
         private void addNodeTime(Xml.Node* node, double millis)
