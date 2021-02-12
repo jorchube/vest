@@ -8,7 +8,7 @@ namespace some.namespace
         {
             test("Should_pass", () =>
             {
-                stdout.printf("awesome remierdas\n");
+
             });
         }
     }
