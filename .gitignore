@@ -1,4 +1,6 @@
 build
 vest-release.tar.gz
 
+test_results.xml
+
 !.github/actions/build
