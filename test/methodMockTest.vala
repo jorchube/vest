@@ -2,7 +2,7 @@ using io.github.jorchube.vest;
 
 namespace io.github.jorchube.vest.test
 {
-    public class MethodMockTest : Suite
+    public class MethodMockTest : TestSuite
     {
         public override void testCases ()
         {

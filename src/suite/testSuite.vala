@@ -2,7 +2,7 @@ using Gee;
 
 namespace io.github.jorchube.vest
 {
-    public class Suite : Object
+    public class TestSuite : Object
     {
         public delegate void SetupDelegate();
         public delegate void TeardownDelegate();
@@ -30,7 +30,7 @@ namespace io.github.jorchube.vest
 
         private LinkedList<TestCaseDescriptor> TestCaseDescriptors;
 
-        public Suite()
+        public TestSuite()
         {
             result = new TestSuiteResult();
             this.name = this.get_type().name();

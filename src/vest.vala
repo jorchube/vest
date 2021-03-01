@@ -6,19 +6,19 @@ namespace io.github.jorchube.vest
 
     public class Vest
     {
-        static LinkedList<Suite> suites;
+        static LinkedList<TestSuite> suites;
         static LinkedList<IPresenter> presenters;
 
         public static void init()
         {
-            Vest.suites = new LinkedList<Suite>();
+            Vest.suites = new LinkedList<TestSuite>();
             Vest.presenters = new LinkedList<IPresenter>();
 
             addConsolePresenter();
             addXunitPresenter();
         }
 
-        public static void addSuite(Suite suite, string? customName = null)
+        public static void addSuite(TestSuite suite, string? customName = null)
         {
             if (customName != null)
             {
@@ -39,7 +39,7 @@ namespace io.github.jorchube.vest
 
         private static void runSuites()
         {
-            foreach (Suite suite in suites)
+            foreach (TestSuite suite in suites)
             {
                 runSuite(suite);
             }
@@ -67,7 +67,7 @@ namespace io.github.jorchube.vest
             presenters.add(presenter);
         }
 
-        private static void runSuite(Suite suite)
+        private static void runSuite(TestSuite suite)
         {
             suite.init();
 
@@ -78,7 +78,7 @@ namespace io.github.jorchube.vest
         {
             bool failure = false;
 
-            foreach (Suite suite in suites)
+            foreach (TestSuite suite in suites)
             {
                 if (!suite.hasBeenRun)
                 {

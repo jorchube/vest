@@ -3,7 +3,7 @@ using Gee;
 
 namespace io.github.jorchube.vest.test
 {
-    public class AssertionTest : Suite
+    public class AssertionTest : TestSuite
     {
         public override void testCases ()
         {

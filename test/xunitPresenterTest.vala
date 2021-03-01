@@ -3,7 +3,7 @@ using Gee;
 
 namespace io.github.jorchube.vest.test
 {
-    public class XunitPresenterTest : Suite
+    public class XunitPresenterTest : TestSuite
     {
         private IPresenter xunitPresenter;
         private FileSystemWrapperStub fswrapper;

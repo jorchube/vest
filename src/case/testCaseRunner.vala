@@ -2,7 +2,7 @@ namespace io.github.jorchube.vest
 {
     public class TestCaseRunner : Object
     {
-        public static TestCaseResult run(TestCaseDescriptor caseDescriptor, Suite.SetupDelegate setup, Suite.TeardownDelegate teardown)
+        public static TestCaseResult run(TestCaseDescriptor caseDescriptor, TestSuite.SetupDelegate setup, TestSuite.TeardownDelegate teardown)
         {
             TestCaseResult result;
 

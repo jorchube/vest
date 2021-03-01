@@ -2,10 +2,6 @@ using Gee;
 
 namespace io.github.jorchube.vest
 {
-    public errordomain assertionError {
-        AssertionFailed
-    }
-
     public class Assert : Object
     {
         public delegate void RaisesDelegate() throws Error;
