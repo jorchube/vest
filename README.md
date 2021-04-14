@@ -134,7 +134,7 @@ FAQ
 
 ### But why?
 
-Some months ago started a project and chose vala. I knew that GLib has some support for writting tests but I really didn't like it that much to be honest. So the only logical step in my mind was to develop my own testing tools ~~With blackjack! And h*****s!~~.
+Some months ago started a project and chose vala. I knew that GLib has some support for writting tests but I really didn't like it that much to be honest. So the only logical step (of course!) in my mind was to develop my own testing tools ~~With blackjack! And h*****s!~~.
 
 ### The setup is not that straightforward...
 
@@ -146,4 +146,5 @@ As far as I know, vala does not have full introspection support, so I don't see 
 
 #### Why you haven't used GObject-Introspection?
 
-You are **very** welcome to help.
+I am not even sure if the question itself makes sense. Anyway, you are **very** welcome to help.
+
