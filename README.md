@@ -4,7 +4,7 @@
 vest
 ====
 
-Vest is a TDD testing framework for vala projects.
+Vest is a Test-Driven Development framework for the vala programming language.
 
 
 Let's write some tests
