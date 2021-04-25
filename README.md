@@ -1,6 +1,6 @@
 ![Tests](https://github.com/jorchube/vest/workflows/Tests/badge.svg)
 
-![Logo](var/logo.svg)
+![Logo](var/logo.png)
 
 vest - Vala Testing framework
 ====
