@@ -1,7 +1,7 @@
 ![Tests](https://github.com/jorchube/vest/workflows/Tests/badge.svg)
 
 
-vest
+vest - Vala Testing framework
 ====
 
 Vest is a Test-Driven Development framework for the vala programming language.
