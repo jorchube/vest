@@ -112,7 +112,7 @@
      inkscape:cx="623.6606"
      inkscape:cy="344.20464"
      inkscape:document-units="px"
-     inkscape:current-layer="g1061"
+     inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
@@ -140,53 +140,54 @@
      inkscape:label="only logo"
      inkscape:groupmode="layer"
      id="layer1"
-     sodipodi:insensitive="true"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <text
        xml:space="preserve"
        id="text833"
-       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect835);fill:#5a5a5a;fill-opacity:1;stroke:none;"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect835);fill:#333333;fill-opacity:1;stroke:none;"
        transform="translate(96.837258,11.962044)"><tspan
          x="11.208984"
          y="120.79147"><tspan
-           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#5a5a5a;fill-opacity:1">est</tspan></tspan></text>
+           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#333333;fill-opacity:1">est</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text841"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect843-6);fill:#69af4e;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect843-6);fill:#68b723;fill-opacity:1;stroke:none;"
        transform="matrix(19.268839,0,0,19.415144,-5376.1523,-254.82169)"><tspan
          x="279.56641"
          y="20.971162"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#69af4e;fill-opacity:1">✔</tspan></tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#68b723;fill-opacity:1">✔</tspan></tspan></text>
   </g>
   <g
      inkscape:label="logo and catchphrase"
      inkscape:groupmode="layer"
      id="g1061"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <text
        xml:space="preserve"
        id="text1053"
-       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1063);fill:#5a5a5a;fill-opacity:1;stroke:none;"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1063);fill:#333333;fill-opacity:1;stroke:none;"
        transform="translate(103.51377,-3.7722415)"><tspan
          x="11.208984"
          y="120.79147"><tspan
-           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#5a5a5a;fill-opacity:1">est</tspan></tspan></text>
+           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:112.889px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#333333;fill-opacity:1">est</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text1059"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1065);fill:#69af4e;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1065);fill:#68b723;fill-opacity:1;stroke:none;"
        transform="matrix(19.268839,0,0,19.415144,-5380.8114,-245.78864)"><tspan
          x="279.56641"
          y="20.971162"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#69af4e;fill-opacity:1">✔</tspan></tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#68b723;fill-opacity:1">✔</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text1053-1"
-       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.2778px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1063-3);display:inline;fill:#5a5a5a;fill-opacity:1;stroke:none;"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.2778px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1063-3);display:inline;fill:#333333;fill-opacity:1;stroke:none;"
        transform="matrix(0.73082477,0,0,0.73082477,118.46834,107.38092)"><tspan
          x="11.208984"
          y="49.001107"><tspan
-           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.2778px;font-family:FreeMono;-inkscape-font-specification:'FreeMono Bold Italic'">TDD for vala</tspan></tspan></text>
+           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.2778px;font-family:FreeMono;-inkscape-font-specification:'FreeMono Bold Italic';fill:#333333;fill-opacity:1">TDD for vala</tspan></tspan></text>
   </g>
 </svg>
