@@ -149,3 +149,8 @@ As far as I know, vala does not have full introspection support, so I don't see 
 
 I am not even sure if the question itself makes sense. Anyway, you are **very** welcome to help.
 
+
+Now clone the repository and start tinkering!
+---
+
+![video](var/compile_n_run.mp4)
