@@ -153,4 +153,4 @@ I am not even sure if the question itself makes sense. Anyway, you are **very** 
 Now clone the repository and start tinkering!
 ---
 
-![video](var/compile_n_run.mp4)
+![compile and run](var/compile_and_run.gif)
