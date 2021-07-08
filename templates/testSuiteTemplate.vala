@@ -2,7 +2,7 @@ using io.github.jorchube.vest;
 
 namespace some.namespace
 {
-    class MyTestSuite : TestSuite
+    class MyTestSuite : io.github.jorchube.vest.TestSuite
     {
         public override void testCases ()
         {
