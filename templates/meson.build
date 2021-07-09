@@ -42,12 +42,4 @@ this_project_tests = executable(
     include_directories: libvest_inc,
     install: false
 )
-test_exe_path = meson.current_build_dir() + '/' + meson.project_name() + '.tests'
-
-### define a target to run the tests:
-run_target(
-    'run_tests',
-    command: [test_exe_path],
-    depends: this_project_tests
-)
 
