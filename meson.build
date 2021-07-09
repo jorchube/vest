@@ -66,11 +66,3 @@ libvest_tests = executable(
     ],
     install: false
 )
-
-test_exe_path = meson.current_build_dir() + '/' + meson.project_name() + '.tests'
-
-run_target(
-    'run_tests',
-    command: [test_exe_path],
-    depends: libvest_tests
-)
