@@ -130,6 +130,33 @@ Additionally Vest will generate a minimal `test_results.xml` **compatible with J
 
 ![Output](var/output.png)
 
+As a starting point you can take a look at the `meson.build` of Vest itself or the one provided in the templates folder:
+
+### Getting started with a release:
+
+Download a release and try to build and run the sample project in the templates folder:
+
+```
+curl -LkO "https://github.com/jorchube/vest/releases/download/0.1.2/vest-release-0.1.2.tar.gz"
+tar xvf vest-release-0.1.2.tar.gz 
+cd templates/
+meson build
+ninja -C build
+./build/some.project.tests
+```
+
+### Getting started with the sources:
+
+Grab the sources and try to run the Vest tests:
+
+```
+git clone https://github.com/jorchube/vest.git
+cd vest/
+meson build
+ninja -C build
+./build/io.github.jorchube.vest.tests
+```
+
 FAQ
 ---
 
